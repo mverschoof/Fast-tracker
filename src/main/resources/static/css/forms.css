@@ -1,0 +1,21 @@
+/**
+ * Forms
+ */
+main form {
+	
+}
+
+main form h2 {
+	margin: 0;
+}
+
+main form fieldset {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+main form fieldset input.hidden {
+	display: none;
+}

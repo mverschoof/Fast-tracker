@@ -1,0 +1,54 @@
+/**
+ * Tables
+ */
+main table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+main table.topmargin {
+	margin-top: 30px;
+}
+
+main table th, 
+main table td {
+	padding: 5px 10px 5px 0;
+	text-align: left;
+	vertical-align: top;
+}
+
+main table th:last-child, 
+main table td:last-child {
+	padding-right: 0;
+}
+
+main table thead th,
+main table tr:last-child td {
+	border-bottom: 1px solid #AAA;
+}
+
+main table thead th {
+	white-space: nowrap;
+}
+
+main table tbody th {
+	font-weight: 600;
+}
+
+main table td.right {
+	text-align: right;
+}
+
+main table td.delete,
+main table td.download {
+	padding: 0;
+	width: 1%;
+	white-space: nowrap;
+	text-align: right;
+}
+
+main table td a {
+	display: block;
+	text-decoration: underline;
+}
+
