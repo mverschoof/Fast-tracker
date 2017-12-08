@@ -29,10 +29,6 @@ public class Target {
 	@Column(name = "ENDDATE", nullable = false)
 	protected ZonedDateTime endDate;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name="FASTTRACK_ID")
-	private Track track;
-
 	public Integer getId() {
 		return this.id;
 	}
@@ -74,7 +70,7 @@ public class Target {
 	}
 
 	public boolean isStarted() {
-		return !DateTimeUtil.isBeforeToday(this.getStartDate());
+		return !DateTimeUtil.isBeforeToday(getStartDate());
 	}
 
 	public ZonedDateTime getEndDate() {
@@ -86,14 +82,7 @@ public class Target {
 	}
 
 	public boolean isEnded() {
-		return DateTimeUtil.isAfterToday(this.getEndDate());
+		return DateTimeUtil.isAfterToday(getEndDate());
 	}
 
-	public Track getTrack() {
-		return this.track;
-	}
-
-	public void setTrack(Track track) {
-		this.track = track;
-	}
 }

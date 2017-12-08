@@ -18,4 +18,6 @@ public interface BadgeDao extends CrudRepository<Badge, Long> {
 	public List<Badge> findByLevel(int level);
 
 	public List<Badge> findByDifficulty(int difficulty);
+
+	public List<Badge> findAll();
 }

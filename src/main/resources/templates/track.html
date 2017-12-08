@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>JTransfer | Nieuw bestand uploaden</title>
+
+		<meta th:replace="template :: metas" />
+
+		<link th:replace="template :: css_base" />
+		<link th:replace="template :: css_forms" />
+	</head>
+	<body>
+		<div class="container">
+			<header th:replace="template :: header('upload')"></header>
+
+			<main>
+				<div th:replace="template :: info"></div>
+
+				<div class="content small">
+
+					<div>
+						<h1 th:text="${track.name}"></h1>
+						<h2>
+							<span th:if="${track.startDate}" th:text="${#temporals.format(track.startDate, 'dd-MM-yyyy HH:mm')}"></span>
+							<span th:if="${track.endDate}" th:text="${#temporals.format(track.endDate, 'dd-MM-yyyy HH:mm')}"></span>
+						</h2>
+						<div th:text="${track.description}"></div>
+					</div>
+
+					<th:block th:with="exercises=${track.exercises},exams=${track.exams}">
+						<ul class="timeline exercises">
+							<li th:each="exercise : ${exercises}">
+								<a th:href="@{'/exercise/' + ${exercise.uuid})">
+									<span th:text="${exercise.name}">Exercise</span>
+									<span th:if="${exercise.startDate}" th:text="${#temporals.format(exercise.startDate, 'dd-MM-yyyy HH:mm')}"></span>
+									<span th:if="${exercise.endDate}" th:text="${#temporals.format(exercise.endDate, 'dd-MM-yyyy HH:mm')}"></span>
+								</a>
+								<div th:text="${exercise.description}"></div>
+								<div th:if="${exercise.hasHomework()}" th:text="${exercise.homework}"></div>
+							</li>
+						</ul>
+	
+						<ul class="timeline exams">
+							<li th:each="exam : ${exams}">
+								<a th:href="@{'/exam/' + ${exam.uuid})">
+									<span th:text="${exam.name}">Exercise</span>
+									<span th:if="${exam.startDate}" th:text="${#temporals.format(exam.startDate, 'dd-MM-yyyy HH:mm')}"></span>
+									<span th:if="${exam.endDate}" th:text="${#temporals.format(exam.endDate, 'dd-MM-yyyy HH:mm')}"></span>
+								</a>
+								<div th:text="${exam.description}"></div>
+								<div th:text="${exam.requiredPercentage}"></div>
+							</li>
+						</ul>
+					</th:block>
+
+				</div>
+			</main>
+		</div>
+	</body>
+</html>

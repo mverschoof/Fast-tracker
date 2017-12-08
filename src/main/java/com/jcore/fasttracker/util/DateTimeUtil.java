@@ -22,7 +22,8 @@ public class DateTimeUtil {
 		return toDays(compare).isAfter(toDays(now));
 	}
 
-	private static ZonedDateTime toDays(ZonedDateTime zdt) {
+	public static ZonedDateTime toDays(ZonedDateTime zdt) {
 		return zdt.truncatedTo(ChronoUnit.DAYS);
 	}
+
 }

@@ -2,18 +2,18 @@ package com.jcore.fasttracker.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "trackitem", catalog = "fasttracker")
+@MappedSuperclass
 public class TrackItem extends Target {
 
-	@Column(name = "HOMEWORK", nullable = true)
-	protected String homework;
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name="FASTTRACK_ID")
+	private Track track;
 
-	public String getHomework() {
-		return this.homework;
+	public Track getTrack() {
+		return this.track;
 	}
 
-	public void setHomework(String homework) {
-		this.homework = homework;
+	public void setTrack(Track track) {
+		this.track = track;
 	}
 }

@@ -10,12 +10,8 @@ public class BaseController {
 
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
-    protected TrackDao trackDao;
-
     @Autowired
-    public BaseController(TrackDao trackDao) {
-        this.trackDao = trackDao;
-    }
+    protected TrackDao trackDao;
 
     /**
      * Get a specific fasttrack by its uuid

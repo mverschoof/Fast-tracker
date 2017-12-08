@@ -2,8 +2,8 @@ package com.jcore.fasttracker.controller;
 
 import java.io.IOException;
 import java.util.List;
-import com.jcore.fasttracker.dao.TrackDao;
 import com.jcore.fasttracker.model.Track;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,24 +15,21 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class TrackController extends BaseController {
 
-//    @Autowired
-    public TrackController(TrackDao trackDao) {
-        super(trackDao);
-    }
-
     /**
-     * Get the file upload page
+     * Get the index page
      *
      * @param model
      * @return
      */
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String index(Model model) {
+    	// TODO: Get logged in user, select the corresponding track and display it like getTrack()
+    	
         return "/index";
     }
 
     /**
-     * Display the fasttracks page
+     * Display the fast-tracks page
      *
      * @param model
      * @return
@@ -49,7 +46,7 @@ public class TrackController extends BaseController {
     }
 
     /**
-     * Display a single fasttrack
+     * Display a single fast-track
      *
      * @param trackUuid
      * @param model
